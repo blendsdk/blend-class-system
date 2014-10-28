@@ -16,16 +16,16 @@ find any bug
 
 BlendJS's class system implements and provides the following functionality.
 
-1. Define classes using ```Blend.defineClass(...)```.
-2. Instantiate objects from previously defined classes using ```Blend.create(...)```.
-3. Extend from existing classes to make custom and specialized classes.
-4. Class overriding, that is changing the current implementation of a class without really extending it.
-5. Singleton classes, which are classes that have only one instance and are instantiated automatically.
-6. Multiple inheritance using mixins. You can mix other classes into your own classes to achieve multiple inheritance.
-7. Function overriding, that is the ability to override a function and be able to call it's parent function.
-8. Static members. These are functions and properties attached to a class. Great to make utility classes.
-9. Automatic namespaces. BlendJS groups your classes into their corresponding namespaces without headache.
-10. Integration with NodeJS.
+* Define classes using ```Blend.defineClass(...)```.
+* Instantiate objects from previously defined classes using ```Blend.create(...)```.
+* Extend from existing classes to make custom and specialized classes.
+* Class overriding, that is changing the current implementation of a class without really extending it.
+* Singleton classes, which are classes that have only one instance and are instantiated automatically.
+* Multiple inheritance using mixins. You can mix other classes into your own classes to achieve multiple inheritance.7
+* Function overriding, that is the ability to override a function and be able to call it's parent function.
+* Static members. These are functions and properties attached to a class. Great to make utility classes.
+* Automatic namespaces. BlendJS groups your classes into their corresponding namespaces without headache.
+* Integration with NodeJS.
 
 ##1. Defining Classes
 To define a class in BlendJS we make use of the ```Blend.defineClass(...)```
@@ -163,5 +163,36 @@ Blend.defineClass('MyCRM.models.Employee', {
     }
 });
 ````
+
+#6. Class overriding
+Overriding a class basically means the ability to change a class partially
+or completely for your own needs. Class overriding is a great way to hot-fix a
+class when you cannot deploy a new version, or when you need to have a function
+behave differently without extending the class. Class overriding was introduced in
+BlendJS to make ad-hoc fixes easier. Here is an example:
+
+````
+var brokenEmployee = Blend.create('MyCRM.models.Employee');
+brokenEmployee.baseSalary; // should be 1000;
+
+/**
+ * Now we override the class using the override directive
+ */
+Blend.defineClass('MyCRM.models.EmployeeHotFix', {
+    override: 'MyCRM.models.Employee',
+    baseSalary: 500
+});
+
+/**
+ * Note that we are still using the 'MyCRM.models.Employee' class
+ */
+var fixedEmployee = Blend.create('MyCRM.models.Employee');
+fixedEmployee.baseSalary; // should be 500;
+```
+BlendJS treats overridden classes like extended classes in all cases. This
+means that you can override functions and call their parent function just like when you
+do extend a class.
+
+
 
 
