@@ -52,7 +52,7 @@ To create or instantiate an object in BlendJS we make use of ```Blend.create(...
 function, by providing it a class name and optionally an object as configuration to initialize it's
 property values. For example:
 
-```
+````JavaScript
 var person = Blend.create('MyCRM.models.Person', {
     firstName: 'Jane',
     lastName: 'Eyre'
@@ -66,7 +66,7 @@ In BlendJS you can create new classes by extending from other classes using the 
 
 So first let us see how we extend from our class ```MyCRM.models.Person``` class defined above:
 
-```
+````JavaScript
 Blend.defineClass('MyCRM.models.Employee', {
     /**
      * Where we extend from the Person class
@@ -103,7 +103,7 @@ employeeNoOne.getInfo();
 BlendJS implicitly extends from ```Blend.BaseClass``` when you do not provide a
 parent class like we did in ```MyCRM.models.Person```. For example:
 
-```
+````JavaScript
 Blend.defineClass('My.cool.Class', {
     // BlendJS extends automatically from Blend.BaseClass if you leave out the
     // extend:'...' directive
@@ -120,7 +120,7 @@ is the ```init(...)``` function. You can provide your own constructor when you d
 a class. The only requirement is that you need to call the parent constructor to help
 BlendJS handle things correctly. For example:
 
-```
+````JavaScript
 Blend.defineClass('MyCRM.models.Employee', {
     extend: 'MyCRM.models.Person',
     department: null,
@@ -147,7 +147,7 @@ This is very easy in BlendJS. You just override the function, by create a functi
 same name, and if you happen to need to call the parent function you use the ```callParent``` utility.
 In the example below we will make ```getFullname``` to return everything in uppercase:
 
-```
+````JavaScript
 Blend.defineClass('MyCRM.models.Employee', {
     extend: 'MyCRM.models.Person',
     /**
@@ -169,7 +169,7 @@ class when you cannot deploy a new version, or when you need to have a function
 behave differently without extending the class. Class overriding was introduced in
 BlendJS to make ad-hoc fixes easier. Here is an example:
 
-```
+````JavaScript
 var brokenEmployee = Blend.create('MyCRM.models.Employee');
 brokenEmployee.baseSalary; // should be 1000;
 
