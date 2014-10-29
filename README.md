@@ -26,7 +26,7 @@ To define a class in BlendJS we make use of the ```Blend.defineClass(...)```
 function, by providing it a FQDN class name and an implementation as a JS object.
 For example:
 
-```
+````JavaScript
 Blend.defineClass('MyCRM.models.Person', {
     /**
      * @type {string} A person's firstname
