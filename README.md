@@ -61,7 +61,7 @@ var person = Blend.create('MyCRM.models.Person', {
 person.getFullname();
 ```
 
-##3. Extending and the role of Blend.BaseClass.
+##3. Extending and the role of Blend.BaseClass
 In BlendJS you can create new classes by extending from other classes using the ```extend``` config.
 
 So first let us see how we extend from our class ```MyCRM.models.Person``` class defined above:
@@ -193,5 +193,14 @@ means that you can override functions and call their parent function just like w
 do extend a class.
 
 
+#7 Multiple inheritance using mixins
+TODO...
 
+#8 Singleton classes
+TODO...
 
+#9 Static members
+TODO...
+
+#10 Integration with NodeJS
+TODO...
