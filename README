@@ -1,16 +1,10 @@
 #BlendJS Core Class System
 
 ##About:
-JavaScript is a powerful prototype based programming language and forcing it behave
-like a class based language makes really no sense. However there is one good reason
-why people go to great lengths to implement a classical system in JavaScript, and
-that reason is simple **convenience**. BlendJS and it's class system are no exception
-to this fact.
-
 BlendJS is a full stack JavaScript Web Application Framework. It is in development
 and in it's early stages. I would like to release it's *classical* class system
-for anyone that interested. I hope you enjoy it and let me know if you happen to
-find any bug
+for anyone that interested until BlendJS is ready for public release.
+I hope you enjoy it and let me know if you happen to find any bugs.
 
 ##Getting Started:
 
@@ -21,7 +15,7 @@ BlendJS's class system implements and provides the following functionality.
 * Extend from existing classes to make custom and specialized classes.
 * Class overriding, that is changing the current implementation of a class without really extending it.
 * Singleton classes, which are classes that have only one instance and are instantiated automatically.
-* Multiple inheritance using mixins. You can mix other classes into your own classes to achieve multiple inheritance.7
+* Multiple inheritance using mixins. You can mix other classes into your own classes to achieve multiple inheritance.
 * Function overriding, that is the ability to override a function and be able to call it's parent function.
 * Static members. These are functions and properties attached to a class. Great to make utility classes.
 * Automatic namespaces. BlendJS groups your classes into their corresponding namespaces without headache.
@@ -29,10 +23,10 @@ BlendJS's class system implements and provides the following functionality.
 
 ##1. Defining Classes
 To define a class in BlendJS we make use of the ```Blend.defineClass(...)```
-function, by providing it a FQDN class name and its implementation as a JS object.
+function, by providing it a FQDN class name and an implementation as a JS object.
 For example:
 
-````
+```
 Blend.defineClass('MyCRM.models.Person', {
     /**
      * @type {string} A person's firstname
@@ -51,26 +45,28 @@ Blend.defineClass('MyCRM.models.Person', {
         return me.firstName + ' ' + me.lastName;
     }
 });
-````
+```
 
 ##2. Instantiating objects
 To create or instantiate an object in BlendJS we make use of ```Blend.create(...)```
-function, by providing it a class name and an object as configuration to initialize it's
+function, by providing it a class name and optionally an object as configuration to initialize it's
 property values. For example:
-````
+
+```
 var person = Blend.create('MyCRM.models.Person', {
     firstName: 'Jane',
     lastName: 'Eyre'
 });
 
 person.getFullname();
-````
+```
 
 ##3. Extending and the role of Blend.BaseClass.
 In BlendJS you can create new classes by extending from other classes using the ```extend``` config.
 
 So first let us see how we extend from our class ```MyCRM.models.Person``` class defined above:
-````
+
+```
 Blend.defineClass('MyCRM.models.Employee', {
     /**
      * Where we extend from the Person class
@@ -102,12 +98,12 @@ var employeeNoOne = Blend.create('MyCRM.models.Employee', {
 });
 
 employeeNoOne.getInfo();
-````
+```
 
 BlendJS implicitly extends from ```Blend.BaseClass``` when you do not provide a
 parent class like we did in ```MyCRM.models.Person```. For example:
 
-````
+```
 Blend.defineClass('My.cool.Class', {
     // BlendJS extends automatically from Blend.BaseClass if you leave out the
     // extend:'...' directive
@@ -116,7 +112,7 @@ Blend.defineClass('My.cool.Class', {
         return;
     }
 });
-````
+```
 
 #4. The Class constructor
 Every class in BlendJS can have a constructor. The class constructor in BlendJS
@@ -124,7 +120,7 @@ is the ```init(...)``` function. You can provide your own constructor when you d
 a class. The only requirement is that you need to call the parent constructor to help
 BlendJS handle things correctly. For example:
 
-````
+```
 Blend.defineClass('MyCRM.models.Employee', {
     extend: 'MyCRM.models.Person',
     department: null,
@@ -143,13 +139,15 @@ Blend.defineClass('MyCRM.models.Employee', {
         }
     }
 });
-````
+```
+
 #5. Function overriding
 Sometimes you need to implement custom functionality on a existing class function.
 This is very easy in BlendJS. You just override the function, by create a function with the
 same name, and if you happen to need to call the parent function you use the ```callParent``` utility.
 In the example below we will make ```getFullname``` to return everything in uppercase:
-````
+
+```
 Blend.defineClass('MyCRM.models.Employee', {
     extend: 'MyCRM.models.Person',
     /**
@@ -162,7 +160,7 @@ Blend.defineClass('MyCRM.models.Employee', {
         return fullName.toUpperCase();
     }
 });
-````
+```
 
 #6. Class overriding
 Overriding a class basically means the ability to change a class partially
@@ -171,7 +169,7 @@ class when you cannot deploy a new version, or when you need to have a function
 behave differently without extending the class. Class overriding was introduced in
 BlendJS to make ad-hoc fixes easier. Here is an example:
 
-````
+```
 var brokenEmployee = Blend.create('MyCRM.models.Employee');
 brokenEmployee.baseSalary; // should be 1000;
 
@@ -189,6 +187,7 @@ Blend.defineClass('MyCRM.models.EmployeeHotFix', {
 var fixedEmployee = Blend.create('MyCRM.models.Employee');
 fixedEmployee.baseSalary; // should be 500;
 ```
+
 BlendJS treats overridden classes like extended classes in all cases. This
 means that you can override functions and call their parent function just like when you
 do extend a class.
