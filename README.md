@@ -2,9 +2,9 @@
 
 ##About:
 BlendJS is a full stack JavaScript Web Application Framework. It is in development
-and in it's early stages. I would like to release it's *classical* class system
-for anyone that interested until BlendJS is ready for public release.
-I hope you enjoy it and let me know if you happen to find any bugs.
+and in it's early stages. But befire BlendJS is ready for production I would like 
+to release it's *classical* class system for anyone that interested. I hope you enjoy
+it and let me know if you happen to find any bugs.
 
 ##Getting Started:
 
@@ -21,7 +21,7 @@ BlendJS's class system implements and provides the following functionality.
 * Automatic namespaces. BlendJS groups your classes into their corresponding namespaces without headache.
 * Integration with NodeJS.
 
-##1. Defining Classes
+##Defining Classes
 To define a class in BlendJS we make use of the ```Blend.defineClass(...)```
 function, by providing it a FQDN class name and an implementation as a JS object.
 For example:
@@ -47,7 +47,7 @@ Blend.defineClass('MyCRM.models.Person', {
 });
 ```
 
-##2. Instantiating objects
+##Instantiating objects
 To create or instantiate an object in BlendJS we make use of ```Blend.create(...)```
 function, by providing it a class name and optionally an object as configuration to initialize it's
 property values. For example:
@@ -61,10 +61,10 @@ var person = Blend.create('MyCRM.models.Person', {
 person.getFullname();
 ```
 
-##3. Extending and the role of Blend.BaseClass
-In BlendJS you can create new classes by extending from other classes using the ```extend``` config.
-
-So first let us see how we extend from our class ```MyCRM.models.Person``` class defined above:
+##Extending Classes
+In BlendJS you can create new classes by extending from other classes using the ```extend``` configuration
+directive. In the following example we create new class called ```MyCRM.models.Employee``` by extending it 
+from ```MyCRM.models.Person```.
 
 ````JavaScript
 Blend.defineClass('MyCRM.models.Employee', {
@@ -100,8 +100,16 @@ var employeeNoOne = Blend.create('MyCRM.models.Employee', {
 employeeNoOne.getInfo();
 ```
 
+##Blend.BaseClass the root of all classes
+
 BlendJS implicitly extends from ```Blend.BaseClass``` when you do not provide a
-parent class like we did in ```MyCRM.models.Person```. For example:
+parent class like we did in ```MyCRM.models.Person```. The ```Blend.BaseClass```
+encapsulates important functionality when initializing and creating an object.
+
+***VERY IMPORTANT***: When overriding a class constructor (the ```init``` function)
+you aleays need to call the parent constructor by ```this.callParent.apply(this,arguments)```,
+otherwise the initialization functionality from the ```Blend.BaseClass``` will not be executed
+correctly and you end up having a broken object!
 
 ````JavaScript
 Blend.defineClass('My.cool.Class', {
@@ -114,7 +122,7 @@ Blend.defineClass('My.cool.Class', {
 });
 ```
 
-#4. The Class constructor
+##The Class constructor
 Every class in BlendJS can have a constructor. The class constructor in BlendJS
 is the ```init(...)``` function. You can provide your own constructor when you define
 a class. The only requirement is that you need to call the parent constructor to help
@@ -141,7 +149,7 @@ Blend.defineClass('MyCRM.models.Employee', {
 });
 ```
 
-#5. Function overriding
+##Function overriding
 Sometimes you need to implement custom functionality on a existing class function.
 This is very easy in BlendJS. You just override the function, by create a function with the
 same name, and if you happen to need to call the parent function you use the ```callParent``` utility.
@@ -162,7 +170,21 @@ Blend.defineClass('MyCRM.models.Employee', {
 });
 ```
 
-#6. Class overriding
+##Multiple inheritance using mixins
+TODO...
+
+##Singleton classes
+TODO...
+
+##Static members
+TODO...
+
+##Integration with NodeJS
+TODO...
+
+#Additional functionality:
+
+##Class overriding
 Overriding a class basically means the ability to change a class partially
 or completely for your own needs. Class overriding is a great way to hot-fix a
 class when you cannot deploy a new version, or when you need to have a function
@@ -191,16 +213,3 @@ fixedEmployee.baseSalary; // should be 500;
 BlendJS treats overridden classes like extended classes in all cases. This
 means that you can override functions and call their parent function just like when you
 do extend a class.
-
-
-#7 Multiple inheritance using mixins
-TODO...
-
-#8 Singleton classes
-TODO...
-
-#9 Static members
-TODO...
-
-#10 Integration with NodeJS
-TODO...
