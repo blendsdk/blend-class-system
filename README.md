@@ -106,11 +106,6 @@ BlendJS implicitly extends from ```Blend.BaseClass``` when you do not provide a
 parent class like we did in ```MyCRM.models.Person```. The ```Blend.BaseClass```
 encapsulates important functionality when initializing and creating an object.
 
-***VERY IMPORTANT***: When overriding a class constructor (the ```init``` function)
-you always need to call the parent constructor by ```this.callParent.apply(this,arguments)```,
-otherwise the initialization functionality from the ```Blend.BaseClass``` will not be executed
-correctly and you end up having a broken object!
-
 ````JavaScript
 Blend.defineClass('My.cool.Class', {
     // BlendJS extends automatically from Blend.BaseClass if you leave out the
@@ -123,7 +118,7 @@ Blend.defineClass('My.cool.Class', {
 ```
 
 ##The Class constructor
-Every class in BlendJS can have a constructor. The class constructor in BlendJS
+Every class in BlendJS can has a constructor. The class constructor in BlendJS
 is the ```init(...)``` function. You can provide your own constructor when you define
 a class. The only requirement is that you need to call the parent constructor to help
 BlendJS handle things correctly. For example:
@@ -148,6 +143,11 @@ Blend.defineClass('MyCRM.models.Employee', {
     }
 });
 ```
+
+***VERY IMPORTANT***: When overriding a class constructor (the ```init``` function)
+you always need to call the parent constructor by ```this.callParent.apply(this,arguments)```,
+otherwise the initialization functionality from the ```Blend.BaseClass``` will not be executed
+correctly and you end up having a broken object!
 
 ##Function overriding
 Sometimes you need to implement custom functionality on a existing class function.
