@@ -53,7 +53,7 @@ Blend.defineClass('MyCRM.models.Person', {
 });
 ```
 
-##Instantiating objects
+##Instantiating Objects
 To create or instantiate an object in BlendJS we make use of ```Blend.create(...)```
 function, by providing it a class name and optionally an object as configuration to initialize it's
 property values. For example:
@@ -106,7 +106,7 @@ var employeeNoOne = Blend.create('MyCRM.models.Employee', {
 employeeNoOne.getInfo();
 ```
 
-##Blend.BaseClass the root of all classes
+##Blend.BaseClass The Root Of All
 
 BlendJS implicitly extends from ```Blend.BaseClass``` when you do not provide a
 parent class like we did in ```MyCRM.models.Person```. The ```Blend.BaseClass```
@@ -123,7 +123,7 @@ Blend.defineClass('My.cool.Class', {
 });
 ```
 
-##The Class constructor
+##The Class Constructor
 Every class in BlendJS can have a constructor. The class constructor in BlendJS
 is the ```init(...)``` function. You can provide your own constructor when you define
 a class. The only requirement is that you need to call the parent constructor to help
@@ -155,7 +155,7 @@ you always need to call the parent constructor by ```this.callParent.apply(this,
 otherwise the initialization functionality from the ```Blend.BaseClass``` will not be executed
 correctly and you end up having a broken object!
 
-##Function overriding
+##Function Overriding
 Sometimes you need to implement custom functionality on a existing class function.
 This is very easy in BlendJS. You just override the function, by creating a function with the
 same name, and if you happen to need to call the parent function, you use the ```callParent``` utility.
@@ -176,24 +176,24 @@ Blend.defineClass('MyCRM.models.Employee', {
 });
 ```
 
-##Multiple inheritance using mixins
+##Multiple Inheritance Using Mixins
 TODO...
 
-##Singleton classes
+##Singleton Classes
 TODO...
 
-##Static members
+##Static Members
 TODO...
 
-##Dependency 
+##Dependency Resolution
 TODO...
 
-##Integration with NodeJS
+##Integration With NodeJS
 TODO...
 
-#Additional functionality:
+#Additional Functionality:
 
-##Class overriding
+##Class Overriding
 Overriding a class basically means the ability to change a class partially
 or completely for your own needs. Class overriding is a great way to hot-fix a
 class when you cannot deploy a new version, or when you need to have a function
