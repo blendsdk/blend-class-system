@@ -157,8 +157,8 @@ correctly and you end up having a broken object!
 
 ##Function overriding
 Sometimes you need to implement custom functionality on a existing class function.
-This is very easy in BlendJS. You just override the function, by create a function with the
-same name, and if you happen to need to call the parent function you use the ```callParent``` utility.
+This is very easy in BlendJS. You just override the function, by creating a function with the
+same name, and if you happen to need to call the parent function, you use the ```callParent``` utility.
 In the example below we will make ```getFullname``` to return everything in uppercase:
 
 ````JavaScript
