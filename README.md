@@ -185,8 +185,68 @@ TODO...
 ##Static Members
 TODO...
 
-##Dependency Resolution
-TODO...
+##Class Dependency Resolution
+BlendJS includes a built-in class resolution systems that automatically resolves and imports classes into your program. In NodeJS this is done behind the scene. For the browser version of BlendJS the ```blend build``` utility parses your classes and compiles a list of every class (with their right order of inclusion) to be loaded into a HTML page.
+
+Class definition in BlendJS comes with a configuration directive called ```requires``` which is used by the dependency analyzer to import class dependencies. Here is how it works in NodeJS:
+
+```JavaScript
+Blend.defineClass('Builder.core.Main', {
+    requires: [
+        'Builder.utils.Resources',
+        'Builder.utils.CommandLine',
+        'Blend.mvc.Application'
+    ],
+    version: '2.0',
+    run: function () {
+        //....
+        //....
+    }
+});
+```
+In the example above BlendJS will automatically call the ```require(...)``` method to load the three dependencies 
+defined in the ```required``` configuration directive. To help BlendJS you need to put and create your class files in a directory order identical to the class namespace. For example:
+
+For ```Builder.utils.CommandLine``` BlendJS will execute ```require('/path/to/src/Builder/utils/CommandLine.js')```
+For ```Blend.mvc.Application``` BlendJS will execute ```require('/path/to/Blend/mvc/Application.js')```
+
+But that is not all! BlendJS also checks the following configuration directives to resolve dependencies:
+
+``````JavaScript
+/**
+ * Automatically load:
+ * 
+ *      extend, override, requires, mixins, and controllers
+ */
+Blend.defineClass('My.cool.Class', {
+    extend: 'My.cool.BaseClass', // Get loaded automatically
+
+    // mixin classes get loaded automatically
+    mixins: {
+        mvcProvider: 'Blend.mvc.Provider',
+        mvcConsumer: 'Blend.mvc.Consumer',
+        xmlProvider: 'My.cool.data.XmlProvider'
+    },
+    // These classes get loaded automatically    
+    requires: [
+        'Blend.mvc.Model',
+        'Blend.ui.Container'
+    ],
+    // These classes also get loaded automatically    
+    controllers: [
+        'My.cool.mvc.ProfileController',
+        'My.cool.mvc.BusinessController'
+    ],
+    /**
+     * Does something
+     */
+    doSomething: function () {
+        //....
+        //....
+    }
+});
+```
+
 
 ##Integration With NodeJS
 TODO...
