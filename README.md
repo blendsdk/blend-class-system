@@ -223,17 +223,17 @@ But that is not all! BlendJS also checks the following configuration directives 
 Blend.defineClass('My.cool.Class', {
     extend: 'My.cool.BaseClass', // Get loaded automatically
 
-    // mixin classes get loaded automatically
-    mixins: {
-        mvcProvider: 'Blend.mvc.Provider',
-        mvcConsumer: 'Blend.mvc.Consumer',
-        xmlProvider: 'My.cool.data.XmlProvider'
-    },
     // These classes get loaded automatically    
     requires: [
         'Blend.mvc.Model',
         'Blend.ui.Container'
     ],
+    // mixins classes get loaded automatically
+    mixins: {
+        mvcProvider: 'Blend.mvc.Provider',
+        mvcConsumer: 'Blend.mvc.Consumer',
+        xmlProvider: 'My.cool.data.XmlProvider'
+    },
     // These classes also get loaded automatically    
     controllers: [
         'My.cool.mvc.ProfileController',
