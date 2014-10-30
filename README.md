@@ -192,6 +192,8 @@ Class definition in BlendJS comes with a configuration directive called ```requi
 
 ```JavaScript
 Blend.defineClass('Builder.core.Main', {
+    // These classes will be loaded automatically. 
+    // You don't need to call require(....)
     requires: [
         'Builder.utils.Resources',
         'Builder.utils.CommandLine',
