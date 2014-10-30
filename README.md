@@ -124,7 +124,7 @@ Blend.defineClass('My.cool.Class', {
 ```
 
 ##The Class constructor
-Every class in BlendJS can has a constructor. The class constructor in BlendJS
+Every class in BlendJS can have a constructor. The class constructor in BlendJS
 is the ```init(...)``` function. You can provide your own constructor when you define
 a class. The only requirement is that you need to call the parent constructor to help
 BlendJS handle things correctly. For example:
