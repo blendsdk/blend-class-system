@@ -106,7 +106,7 @@ var employeeNoOne = Blend.create('MyCRM.models.Employee', {
 employeeNoOne.getInfo();
 ```
 
-##Blend.BaseClass The Root Of All
+##Blend.BaseClass The Root Of All Classes
 
 BlendJS implicitly extends from ```Blend.BaseClass``` when you do not provide a
 parent class like we did in ```MyCRM.models.Person```. The ```Blend.BaseClass```
