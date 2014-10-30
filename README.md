@@ -6,6 +6,10 @@ and in it's early stages. But befire BlendJS is ready for production I would lik
 to release it's *classical* class system for anyone that interested. I hope you enjoy
 it and let me know if you happen to find any bugs.
 
+***IMPORTANT***: This repository is created to enable BlendJS's class system within NodeJS.
+It does not provide useful functionality in the browser. For the browser version you need 
+to use the BlendJS Web SDK!
+
 ##Getting Started:
 
 BlendJS's class system implements and provides the following functionality.
