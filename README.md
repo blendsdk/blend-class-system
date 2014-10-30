@@ -107,7 +107,7 @@ parent class like we did in ```MyCRM.models.Person```. The ```Blend.BaseClass```
 encapsulates important functionality when initializing and creating an object.
 
 ***VERY IMPORTANT***: When overriding a class constructor (the ```init``` function)
-you aleays need to call the parent constructor by ```this.callParent.apply(this,arguments)```,
+you always need to call the parent constructor by ```this.callParent.apply(this,arguments)```,
 otherwise the initialization functionality from the ```Blend.BaseClass``` will not be executed
 correctly and you end up having a broken object!
 
