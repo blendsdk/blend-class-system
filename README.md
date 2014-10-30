@@ -14,16 +14,18 @@ to use the BlendJS Web SDK!
 
 BlendJS's class system implements and provides the following functionality.
 
-* Define classes using ```Blend.defineClass(...)```.
-* Instantiate objects from previously defined classes using ```Blend.create(...)```.
-* Extend from existing classes to make custom and specialized classes.
-* Class overriding, that is changing the current implementation of a class without really extending it.
-* Singleton classes, which are classes that have only one instance and are instantiated automatically.
-* Multiple inheritance using mixins. You can mix other classes into your own classes to achieve multiple inheritance.
-* Function overriding, that is the ability to override a function and be able to call it's parent function.
-* Static members. These are functions and properties attached to a class. Great to make utility classes.
-* Automatic namespaces. BlendJS groups your classes into their corresponding namespaces without headache.
-* Integration with NodeJS.
+* **Define classes** using ```Blend.defineClass(...)```.
+* **Instantiate objects** from previously defined classes using ```Blend.create(...)```.
+* **Extend** from existing classes to make custom and specialized classes.
+* **Class overriding**, that is changing the current implementation of a class without really extending it.
+* **Singleton classes**, which are classes that have only one instance and are instantiated automatically.
+* **Multiple inheritance** using mixins. You can mix other classes into your own classes to achieve multiple inheritance.
+* **Function overriding**, that is the ability to override a function and be able to call it's parent function.
+* **Static members**. These are functions and properties attached to a class. Great to make utility classes.
+* **Automatic namespaces**. BlendJS groups your classes into their corresponding namespaces without headache.
+* **Automatic dependency resolving**. BlendJS (both NodeJS and browser versions) automatically resolves class
+dependencies so you don't need to use ```require``` all the time.
+* **Integration with NodeJS**
 
 ##Defining Classes
 To define a class in BlendJS we make use of the ```Blend.defineClass(...)```
@@ -181,6 +183,9 @@ TODO...
 TODO...
 
 ##Static members
+TODO...
+
+##Dependency 
 TODO...
 
 ##Integration with NodeJS
