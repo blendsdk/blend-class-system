@@ -264,7 +264,7 @@ TODO...
 
 ### Hello World
 
-(Check the Hello World example here)[https://github.com/blendsdk/blend-class-system/tree/master/examples/]
+https://github.com/blendsdk/blend-class-system/tree/master/examples/
 
 #Additional Functionality:
 
