@@ -1,6 +1,6 @@
 {
   "name": "blend-class-system",
-  "version": "2.0.1-10",
+  "version": "2.0.1-11",
   "description": "BlendJS Object Oriented Class System For NODE.JS",
   "main": "index.js",
   "scripts": {
