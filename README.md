@@ -262,6 +262,23 @@ Blend.defineClass('My.cool.Class', {
 ##Integration With NodeJS
 TODO...
 
+### Hello World
+
+```JavaScript
+require('blend-class-system');
+
+Blend.defineClass('Hello.World',{
+	sayHello:function() {
+		console.log("Hello World");
+	}
+});
+
+var obj = Blend.create('Hello.World');
+obj.sayHello();
+```
+
+
+
 #Additional Functionality:
 
 ##Class Overriding
