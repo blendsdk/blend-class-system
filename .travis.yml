@@ -1,0 +1,8 @@
+deploy:
+  provider: npm
+  email: gevik@blendjs.com
+  api_key:
+    secure: WT6iCpEIlm7jTYCrtNX9x6E1CFfFlHdM4QQ6LJMdQoYU0Fl4C5LX7SQhkiBzEqFzunbQIJOBI5Abimw3p3JVCX8zl0khiTd3cB1tbwcfwrrMr6SV39ylzxwcliE2U79juhYttGwoM9PMw3btWUGkIhfn4O1gx18xJLae7HcFf2I=
+  on:
+    tags: true
+    repo: blendsdk/blend-class-system
