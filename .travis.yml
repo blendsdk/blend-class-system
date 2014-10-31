@@ -7,3 +7,6 @@ deploy:
   on:
     tags: true
     repo: blendsdk/blend-class-system
+branches:
+    only:
+        - master
