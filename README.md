@@ -2,12 +2,12 @@
 
 ##About:
 BlendJS is a full stack JavaScript Web Application Framework. It is in development
-and in it's early stages. But befire BlendJS is ready for production I would like 
+and in it's early stages. But befire BlendJS is ready for production I would like
 to release it's *classical* class system for anyone that interested. I hope you enjoy
 it and let me know if you happen to find any bugs.
 
 ***IMPORTANT***: This repository is created to enable BlendJS's class system within NodeJS.
-It does not provide useful functionality in the browser. For the browser version you need 
+It does not provide useful functionality in the browser. For the browser version you need
 to use the BlendJS Web SDK!
 
 ##Getting Started:
@@ -69,7 +69,7 @@ person.getFullname();
 
 ##Extending Classes
 In BlendJS you can create new classes by extending from other classes using the ```extend``` configuration
-directive. In the following example we create new class called ```MyCRM.models.Employee``` by extending it 
+directive. In the following example we create new class called ```MyCRM.models.Employee``` by extending it
 from ```MyCRM.models.Person```.
 
 ````JavaScript
@@ -186,13 +186,19 @@ TODO...
 TODO...
 
 ##Class Dependency Resolution
-BlendJS includes a built-in class resolution systems that automatically resolves and imports classes into your program. In NodeJS this is done behind the scene. For the browser version of BlendJS the ```blend build``` utility parses your classes and compiles a list of every class (with their right order of inclusion) to be loaded into a HTML page.
+BlendJS includes a built-in class resolution systems that automatically resolves
+and imports classes into your program. In NodeJS this is done behind the scene.
+For the browser version of BlendJS the ```blend build``` utility parses your
+classes and compiles a list of every class (with their right order of inclusion)
+to be loaded into a HTML page.
 
-Class definition in BlendJS comes with a configuration directive called ```requires``` which is used by the dependency analyzer to import class dependencies. Here is how it works in NodeJS:
+Class definition in BlendJS comes with a configuration directive called ```requires```
+which is used by the dependency analyzer to import class dependencies. Here is how
+it works in NodeJS:
 
 ```JavaScript
 Blend.defineClass('Builder.core.Main', {
-    // These classes will be loaded automatically. 
+    // These classes will be loaded automatically.
     // You don't need to call require(....)
     requires: [
         'Builder.utils.Resources',
@@ -206,24 +212,27 @@ Blend.defineClass('Builder.core.Main', {
     }
 });
 ```
-In the example above BlendJS will automatically call the ```require(...)``` method to load the three dependencies 
-defined in the ```required``` configuration directive. To help BlendJS you need to put and create your class files in a directory order identical to the class namespace. For example:
+In the example above BlendJS will automatically call the ```require(...)``` method
+to load the three dependencies defined in the ```required``` configuration directive.
+To help BlendJS you need to put and create your class files in a directory order
+identical to the class namespace. For example:
 
 For ```Builder.utils.CommandLine``` BlendJS will execute ```require('/path/to/src/Builder/utils/CommandLine.js')```
 For ```Blend.mvc.Application``` BlendJS will execute ```require('/path/to/Blend/mvc/Application.js')```
 
-But that is not all! BlendJS also checks the following configuration directives to resolve dependencies:
+But that is not all! BlendJS also checks the following configuration directives
+to resolve dependencies:
 
 ``````JavaScript
 /**
  * Automatically load:
- * 
+ *
  *      extend, override, requires, mixins, and controllers
  */
 Blend.defineClass('My.cool.Class', {
     extend: 'My.cool.BaseClass', // Get loaded automatically
 
-    // These classes get loaded automatically    
+    // These classes get loaded automatically
     requires: [
         'Blend.mvc.Model',
         'Blend.ui.Container'
@@ -234,7 +243,7 @@ Blend.defineClass('My.cool.Class', {
         mvcConsumer: 'Blend.mvc.Consumer',
         xmlProvider: 'My.cool.data.XmlProvider'
     },
-    // These classes also get loaded automatically    
+    // These classes also get loaded automatically
     controllers: [
         'My.cool.mvc.ProfileController',
         'My.cool.mvc.BusinessController'
@@ -282,5 +291,5 @@ fixedEmployee.baseSalary; // should be 500;
 ```
 
 BlendJS treats overridden classes like extended classes in all cases. This
-means that you can override functions and call their parent function just like when you
-do extend a class.
+means that you can override functions and call their parent function just like
+when you do extend a class.
