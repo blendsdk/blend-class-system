@@ -264,20 +264,7 @@ TODO...
 
 ### Hello World
 
-```JavaScript
-require('blend-class-system');
-
-Blend.defineClass('Hello.World',{
-	sayHello:function() {
-		console.log("Hello World");
-	}
-});
-
-var obj = Blend.create('Hello.World');
-obj.sayHello();
-```
-
-
+(Check the Hello World example here)[https://github.com/blendsdk/blend-class-system/tree/master/examples/]
 
 #Additional Functionality:
 
