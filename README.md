@@ -217,8 +217,8 @@ to load the three dependencies defined in the ```required``` configuration direc
 To help BlendJS you need to put and create your class files in a directory order
 identical to the class namespace. For example:
 
-For ```Builder.utils.CommandLine``` BlendJS will execute ```require('/path/to/src/Builder/utils/CommandLine.js')```
-For ```Blend.mvc.Application``` BlendJS will execute ```require('/path/to/Blend/mvc/Application.js')```
+For ```Builder.utils.CommandLine``` we execute```require('/path/to/src/Builder/utils/CommandLine.js')```
+For ```Blend.mvc.Application``` we execute ```require('/path/to/Blend/mvc/Application.js')```
 
 But that is not all! BlendJS also checks the following configuration directives
 to resolve dependencies:
