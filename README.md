@@ -1,5 +1,7 @@
 #BlendJS Core Class System
 
+[![Build Status](https://travis-ci.org/blendsdk/blend-class-system.svg?branch=master)](https://travis-ci.org/blendsdk/blend-class-system)
+
 ##About:
 BlendJS is a full stack JavaScript Web Application Framework. It is in development
 and in it's early stages. But befire BlendJS is ready for production I would like
