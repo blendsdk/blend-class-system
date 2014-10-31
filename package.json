@@ -1,31 +1,31 @@
 {
-    "name": "blend-class-system",
-    "version": "2.0.1-5",
-    "description": "BlendJS Object Oriented Class System For NODE.JS",
-    "main": "index.js",
-    "scripts": {
-        "test": "node tests/10000-sanity.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/blendsdk/blend-class-system.git"
-    },
-    "keywords": [
-        "oop",
-        "class",
-        "classsystem",
-        "blendjs",
-        "blendsdk",
-        "classes",
-        "inheritance"
-    ],
-    "author": "Gevik Babakhani (blendjs.com)",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/blendsdk/blend-class-system/issues"
-    },
-    "devDependencies": {
-        "assert": "*"
-    },
-    "homepage": "https://github.com/blendsdk/blend-class-system"
+  "name": "blend-class-system",
+  "version": "2.0.1-6",
+  "description": "BlendJS Object Oriented Class System For NODE.JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/10000-sanity.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blendsdk/blend-class-system.git"
+  },
+  "keywords": [
+    "oop",
+    "class",
+    "classsystem",
+    "blendjs",
+    "blendsdk",
+    "classes",
+    "inheritance"
+  ],
+  "author": "Gevik Babakhani (blendjs.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blendsdk/blend-class-system/issues"
+  },
+  "devDependencies": {
+    "assert": "*"
+  },
+  "homepage": "https://github.com/blendsdk/blend-class-system"
 }
