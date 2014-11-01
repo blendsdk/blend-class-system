@@ -262,7 +262,7 @@ Blend.defineClass('My.cool.Class', {
 ```
 
 **One more thing!**
-When running inside Node.js, you can instruct BlendJS to load your classes from a different location 
+When running inside Node.js, you can instruct BlendJS to load your classes from a different location
 than taking the current directory as the root location. This can be doe by:
 
 ```
@@ -274,7 +274,7 @@ where ```require('blend-class-system')``` was called for the first time!**
 
 ##Integration With Node.js
 
-Node.js provides a very developer friendly ecosystem for developing JavaScript applications. 
+Node.js provides a very developer friendly ecosystem for developing JavaScript applications.
 To use BlendJS’ class system in Node.js there is very little work on your part to get everything in motion.
 
 ####Get blend-class-system installed.
@@ -287,13 +287,13 @@ Add ```blend-class-system``` to the dependencies of your package file then run `
 {
     "name": "MyApp",
     .....
-    "devDependencies": {
+    "dependencies": {
         "blend-class-system": "*"
     }
 }
 ```
 
-Or just run ```npm install blend-class-system``` if you do not have a ```package.json``` for your project 
+Or just run ```npm install blend-class-system``` if you do not have a ```package.json``` for your project
 
 Next you need to ```require('blend-class-system');``` in the main file of your project. You need to do this only
 once. BlendJS will make itself available from the global scope of your Node.js application.
@@ -316,7 +316,7 @@ app.run();
 ```
 
 ### Hello World
-As a good tradition you can find a fancy Hello World application using the link below: 
+As a good tradition you can find a fancy Hello World application using the link below:
 https://github.com/blendsdk/blend-class-system/tree/master/examples/
 
 #Additional Functionality:
