@@ -223,8 +223,8 @@ For ```App.data.Model``` we execute```require('/path/to/src/App/data/Model.js')`
 
 For ```Blend.mvc.Application``` we execute ```require('/path/to/Blend/mvc/Application.js')```
 
-But that is not all! BlendJS also checks the following configuration directives
-to resolve dependencies:
+**But that is not all!**
+BlendJS also checks the following configuration directives to resolve dependencies:
 
 ``````JavaScript
 /**
@@ -260,6 +260,17 @@ Blend.defineClass('My.cool.Class', {
     }
 });
 ```
+
+**One more thing!**
+When running inside Node.js, you can instruct BlendJS to load your classes from a different location 
+than taking the current directory as the root location. This can be doe by:
+
+```
+Blend.loadPath = __dirname + '/path/to/my/classes/';
+```
+
+**BlendJS by default sets the value of ```Blend.loadPath``` to the folder of the file
+where ```require('blend-class-system')``` was called for the first time!**
 
 ##Integration With Node.js
 
