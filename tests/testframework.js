@@ -386,9 +386,12 @@ var $$ = function () {
             }
         };
 
-        var log_message = function (element) {
+        var log_message = function (element, error) {
+            error = error || false;
             if (is_node()) {
-                if (console && console.log) {
+                if (error) {
+                    console.error(element);
+                } else {
                     console.log(element);
                 }
             } else {
@@ -431,11 +434,10 @@ var $$ = function () {
         };
 
         this.run = function () {
-            result = 0;
             if (tests.length !== 0) {
-                result += runNextTest();
+                runNextTest();
             }
-            return result === 0 ? 0 : 1;
+            return allfail !== 0 ? 1 : 0;
         };
 
         return this;
