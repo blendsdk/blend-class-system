@@ -824,6 +824,9 @@ BlendTest.defineTest('classbuilder', 'instantiate abstract class', function (t) 
         Blend.create('Test.abstract.MyAbstract');
     }, 'Cannot instantiate abstract class Test.abstract.MyAbstract', 'abstract instanse');
 
+
+    t.equal(1, 2, 'failed test');
+
     t.done();
 
 });
