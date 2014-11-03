@@ -445,6 +445,7 @@ if (typeof exports === 'undefined') {
     // running in the browser
     this.BlendTest = $$().apply(this, []);
 } else {
+    require('colors');
     GLOBAL.BlendTest = $$().apply({}, []);
 }
 delete($$);
