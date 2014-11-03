@@ -387,29 +387,50 @@ var $$ = function () {
         };
 
         var log_message = function (element) {
-            messages.push(element);
+            if (is_node()) {
+                console.log(element);
+            } else {
+                messages.push(element);
+            }
+
         };
 
         var log_pass = function (message) {
-            log_message(mk_log({text: message, cls: 'blend-test-log blend-test-pass-log'}));
+            log_message(mk_log({text: message.toString().green, cls: 'blend-test-log blend-test-pass-log'}));
         };
 
         var log_warn = function (message) {
-            log_message(mk_log({text: message, cls: 'blend-test-log blend-test-warn-log'}));
+            log_message(mk_log({text: message.toString().magenta, cls: 'blend-test-log blend-test-warn-log'}));
         };
 
 
         var log_info = function (message) {
-            log_message(mk_log({text: message, cls: 'blend-test-log blend-test-info-log'}));
+            log_message(mk_log({text: message.toString().blue, cls: 'blend-test-log blend-test-info-log'}));
         };
 
         var log_error = function (message) {
-            log_message(mk_log({text: message, cls: 'blend-test-log blend-test-error-log'}));
-            statusbar.innerHTML += "<span class='blend-test-error-log'>" + last_message + "</span>";
+            log_message(mk_log({text: message.toString().red, cls: 'blend-test-log blend-test-error-log'}));
+        };
+
+        var runNextTest = function () {
+            currentTest = tests[nextTest];
+            if (currentTest) {
+                try {
+                    log_info('Starting');
+                    currentTest.fn(me);
+                } catch (e) {
+                    log_error(e);
+                    if (is_node()) {
+                        process.exit(1);
+                    }
+                }
+            }
         };
 
         this.run = function () {
-
+            if (tests.length !== 0) {
+                runNextTest();
+            }
         };
 
         return this;
@@ -424,6 +445,7 @@ if (typeof exports === 'undefined') {
 } else {
     // running in nodejs
     var path = require('path');
+    require('colors');
     GLOBAL.BlendTest = $$().apply({}, []);
 }
 delete($$);
