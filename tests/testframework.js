@@ -26,7 +26,16 @@ var $$ = function () {
     return function () {
 
         var me = this,
-                tests = []; // array of all defined tests
+                allpass = 0,
+                allfail = 0,
+                tests = [],
+                nextTest = 0,
+                currentTest,
+                started = false,
+                testWindow = null,
+                statusbar = null,
+                last_message = null,
+                messages = [];
 
         /**
          * Deel equal check of a value
@@ -347,6 +356,57 @@ var $$ = function () {
             currentTest.testn++;
         };
 
+
+        /**
+         * Creates a log message either by creating an element or the by
+         * returning the text itself in case of nodejs
+         * @param {type} attrs
+         * @returns {Element|String}
+         */
+        var mk_log = function (attrs) {
+            if (currentTest && currentTest.name && attrs.text) {
+                attrs.text = currentTest.name + " : " + attrs.text;
+            }
+            if (is_node()) {
+                return attrs.text;
+            } else {
+                var el = document.createElement('DIV'), val;
+                for (var attr in attrs) {
+                    val = attrs[attr];
+                    if (attr === 'cls') {
+                        el.setAttribute('class', val);
+                    } else if (attr === 'style') {
+                        el.style = val;
+                    } else if (attr === 'text') {
+                        el.innerHTML = val;
+                        last_message = val;
+                    }
+                }
+                return el;
+            }
+        };
+
+        var log_message = function (element) {
+            messages.push(element);
+        };
+
+        var log_pass = function (message) {
+            log_message(mk_log({text: message, cls: 'blend-test-log blend-test-pass-log'}));
+        };
+
+        var log_warn = function (message) {
+            log_message(mk_log({text: message, cls: 'blend-test-log blend-test-warn-log'}));
+        };
+
+
+        var log_info = function (message) {
+            log_message(mk_log({text: message, cls: 'blend-test-log blend-test-info-log'}));
+        };
+
+        var log_error = function (message) {
+            log_message(mk_log({text: message, cls: 'blend-test-log blend-test-error-log'}));
+            statusbar.innerHTML += "<span class='blend-test-error-log'>" + last_message + "</span>";
+        };
 
         this.run = function () {
 
