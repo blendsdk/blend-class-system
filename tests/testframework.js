@@ -388,7 +388,9 @@ var $$ = function () {
 
         var log_message = function (element) {
             if (is_node()) {
-                console.log(element);
+                if (console && console.log) {
+                    console.log(element);
+                }
             } else {
                 messages.push(element);
             }
@@ -443,8 +445,6 @@ if (typeof exports === 'undefined') {
     // running in the browser
     this.BlendTest = $$().apply(this, []);
 } else {
-    // running in nodejs
-    var path = require('path');
     GLOBAL.BlendTest = $$().apply({}, []);
 }
 delete($$);
