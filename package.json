@@ -24,8 +24,5 @@
     "bugs": {
         "url": "https://github.com/blendsdk/blend-class-system/issues"
     },
-    "devDependencies": {
-        "colors": "*"
-    },
     "homepage": "https://github.com/blendsdk/blend-class-system"
 }
