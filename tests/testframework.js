@@ -420,19 +420,22 @@ var $$ = function () {
                 try {
                     log_info('Starting');
                     currentTest.fn(me);
+                    return 0;
                 } catch (e) {
                     log_error(e);
                     if (is_node()) {
-                        process.exit(1);
+                        return 1;
                     }
                 }
             }
         };
 
         this.run = function () {
+            result = 0;
             if (tests.length !== 0) {
-                runNextTest();
+                result += runNextTest();
             }
+            return result === 0 ? 0 : 1;
         };
 
         return this;
