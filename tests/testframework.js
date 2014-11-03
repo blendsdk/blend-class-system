@@ -445,7 +445,6 @@ if (typeof exports === 'undefined') {
 } else {
     // running in nodejs
     var path = require('path');
-    require('colors');
     GLOBAL.BlendTest = $$().apply({}, []);
 }
 delete($$);
