@@ -62,6 +62,7 @@ BlendTest.defineTest('classbuilder', 'instance creation test', function (t) {
 });
 
 
+
 BlendTest.defineTest('classbuilder', 'class does not exist', function (t) {
 
     t.throws_exception(function () {
@@ -657,8 +658,8 @@ BlendTest.defineTest('classbuilder', 'extend from a class with mixin', function 
             mix1: 'Test.x.Mixin'
         },
         init: function () {
-            this.callParent.apply(this.arguments);
-            this.mixins.mix1.init.apply(this.arguments);
+            this.callParent.apply(this, arguments);
+            this.mixins.mix1.init.apply(this, arguments);
         },
         HelloWorld: function () {
             return this.hello() + ' world!';
