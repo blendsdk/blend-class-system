@@ -1,3 +1,13 @@
+BlendTest.defineTest('classbuilder', 'extending', function (t) {
+    try {
+        require(__dirname + '/com/test/Child.js');
+        var obj = Blend.create('com.test.Child');
+        t.equal(obj.contact(), 2, 'both classes loaded');
+    } catch (e) {
+        t.isTrue(false, e);
+    }
+});
+
 BlendTest.defineTest('classbuilder', 'instance creation test', function (t) {
     Blend.defineClass('Test.INST1', {
         alias: 'my.inst1',
