@@ -3,6 +3,7 @@ BlendTest.defineTest('classbuilder', 'extending', function (t) {
         require(__dirname + '/com/test/Child.js');
         var obj = Blend.create('com.test.Child');
         t.equal(obj.contact(), 2, 'both classes loaded');
+        t.done();
     } catch (e) {
         t.isTrue(false, e);
     }
