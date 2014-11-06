@@ -1,4 +1,4 @@
-Blend.defineClass('com.test.Child', {
+Blend.defineClass('tests.com.test.Child', {
     extend: 'tests.com.Parent',
     contact: function () {
         var me = this;
