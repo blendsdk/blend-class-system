@@ -183,11 +183,12 @@ TODO...
 
 ##Singletons
 
-In BlendJS Singletons are object that are automatically instantiated and exist
-throughout the entire life-cycle of your application. Once you mark a class as
+In BlendJS Singletons are objects that are automatically instantiated and exist
+throughout the entire life-cycle of an application. Once you mark a class as
 a ```singleton```, BlendJS creates an object with the same name as the class
 itself and initializes that object to be used further. Please note that you
-cannot create multiple instances of a singleton class, for example:
+cannot create multiple instances of a singleton class. There can be only one
+instance of a singleton:
 
 ```JavaScript
 /**
@@ -206,6 +207,8 @@ Blend.defineClass('CRM.utils.Mailer', {
 
 Blend.defineClass('Some.Class', {
     doWork: function () {
+
+        // Here is how we use the singleton
         CRM.utils.Mailer.sendMail(
                 'me@example.com',
                 'you@example.com',
