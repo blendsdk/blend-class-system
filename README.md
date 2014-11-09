@@ -181,8 +181,40 @@ Blend.defineClass('MyCRM.models.Employee', {
 ##Multiple Inheritance Using Mixins
 TODO...
 
-##Singleton Classes
-TODO...
+##Singletons
+
+In BlendJS Singletons are object that are automatically instantiated and exist
+throughout the entire life-cycle of your application. Once you mark a class as
+a ```singleton```, BlendJS creates an object with the same name as the class
+itself and initializes that object to be used further. Please note that you
+cannot create multiple instances of a singleton class, for example:
+
+```JavaScript
+/**
+ * Create a singleton
+ */
+Blend.defineClass('CRM.utils.Mailer', {
+    // make this class a singleton
+    singleton: true,
+    sendMail: function (from, to, subject, message) {
+        /// Send mail :)
+    }
+});
+
+
+// Using singletons
+
+Blend.defineClass('Some.Class', {
+    doWork: function () {
+        CRM.utils.Mailer.sendMail(
+                'me@example.com',
+                'you@example.com',
+                'message subject',
+                'message body'
+                );
+    }
+});
+```
 
 ##Static Members
 TODO...
