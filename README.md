@@ -4,7 +4,7 @@
 
 ##About:
 BlendJS is a full stack JavaScript Web Application Framework. It is in development
-and in it's early stages. But befire BlendJS is ready for production I would like
+and in it's early stages. But before BlendJS is ready for production I would like
 to release it's *classical* class system for anyone that interested. I hope you enjoy
 it and let me know if you happen to find any bugs.
 
