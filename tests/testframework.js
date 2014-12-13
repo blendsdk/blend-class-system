@@ -215,7 +215,7 @@ var $$ = function () {
          */
         this.done = function () {
             if (currentTest.pass === 0 && currentTest.fail === 0) {
-                this.log_warn('Nothing was tested!!!');
+                log_warn('Nothing was tested!!!');
             }
             nextTest++;
             runNextTest();
