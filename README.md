@@ -256,8 +256,8 @@ var msgBox = Blend.create('CrmApp.MessageBox');
 msgBox.show(
         'Order',
         'Order creation complete',
-        Blend.MessageBox.ICON_INFO,
-        Blend.MessageBox.BUTTON_OK
+        CrmApp.MessageBox.ICON_INFO,
+        CrmApp.MessageBox.BUTTON_OK
         );
 ```
 
