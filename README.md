@@ -229,7 +229,6 @@ functions or constants without the need for instantiation:
 
 ```JavaScript
 Blend.defineClass('CrmApp.MessageBox', {
-    singleton: true,
     /**
      * We define static properties like this
      */
