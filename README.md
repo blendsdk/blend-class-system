@@ -222,7 +222,45 @@ Blend.defineClass('Some.Class', {
 ```
 
 ##Static Members
-TODO...
+Normally class functions are only available when an object is instantiated from a class.
+In contrast to class function, static functions and properties can directly be accessed
+from the class itself. Static functions and properties can be best used to provide utility
+functions or constants without the need for instantiation:
+
+```JavaScript
+Blend.defineClass('CrmApp.MessageBox', {
+    singleton: true,
+    /**
+     * We define static properties like this
+     */
+    statics: {
+        BUTTON_OK: 1,
+        BITTON_CANCEL: 2,
+        BUTTON_YES: 4,
+        BUTTON_NO: 8,
+        ICON_INFO: 'b-icon-info',
+        ICON_WARN: 'b-icon-warn',
+        ICON_ERROR: 'b-icon-error'
+    },
+    /**
+     * Creates a modal message box
+     */
+    show: function (title, message, icon, button) {
+        // This is an instanse function
+    }
+});
+
+/**
+ * Let's create a messagebox
+ */
+var msgBox = Blend.create('CrmApp.MessageBox');
+msgBox.show(
+        'Order',
+        'Order creation complete',
+        Blend.MessageBox.ICON_INFO,
+        Blend.MessageBox.BUTTON_OK
+        );
+```
 
 ##Class Dependency Resolution
 BlendJS includes a built-in class resolution systems that automatically resolves
