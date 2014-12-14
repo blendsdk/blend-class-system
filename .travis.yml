@@ -3,8 +3,7 @@ deploy:
   provider: npm
   email: gevik@blendjs.com
   api_key:
-    secure: WT6iCpEIlm7jTYCrtNX9x6E1CFfFlHdM4QQ6LJMdQoYU0Fl4C5LX7SQhkiBzEqFzunbQIJOBI5Abimw3p3JVCX8zl0khiTd3cB1tbwcfwrrMr6SV39ylzxwcliE2U79juhYttGwoM9PMw3btWUGkIhfn4O1gx18xJLae7HcFf2I=
+    secure: mYOBuU5fBQ7HdorzaI8BiGm4YIcXW+AWZlaxR9Jf/qGTwnmFy2hHYPNqC8OTvocACgZdinlbdV5ICGu51SgfOQq+JAlOgPANiJee3hIMNs1xJwRetEebSsigSTX/R2VDjpHq+yQy764f1hPOs7MfoxsCW5hirngZe5ZVq98lJts=
   on:
     tags: true
     repo: blendsdk/blend-class-system
-    all_branches: true
