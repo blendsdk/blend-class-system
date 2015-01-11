@@ -306,61 +306,6 @@ BlendTest.defineTest('classbuilder', 'namespace creaton', function (t) {
     t.done();
 });
 
-BlendTest.defineTest('classbuilder', 'automatic getter setter (with override)', function (t) {
-    Blend.defineClass('Test.Person', {
-        configs: {
-            firstname: 'john',
-            lastname: 'doe',
-            date_of_birth: null
-        },
-        fullname: function () {
-            return this.firstname + ' ' + this.lastname;
-        },
-        onPropertyChange: function (p, o, n) {
-            //console.log(p, o, 'chnaged to', n);
-        }
-    });
-
-    t.ok(Blend.isFunction(Test.Person.prototype.getFirstname), 'getter fname');
-    t.ok(Blend.isFunction(Test.Person.prototype.setFirstname), 'setter fname');
-    t.ok(Blend.isFunction(Test.Person.prototype.getDateOfBirth), 'getter date_of_birth');
-    t.ok(Blend.isFunction(Test.Person.prototype.setDateOfBirth), 'setter date_of_birth');
-
-    var p1 = new Test.Person({
-        firstname: 'Sally'
-    });
-
-    p1.setLastname('Doe');
-    t.equal(p1.fullname(), 'Sally Doe', 'setter test');
-    t.equal(p1.getFirstname(), 'Sally', 'getter test');
-
-    Blend.defineClass('Test.PersonShout', {
-        extend: 'Test.Person',
-        setLastname: function (value) {
-            this.callParent.apply(this, [value.toUpperCase()]);
-        }
-    });
-
-    var ps1 = new Test.PersonShout();
-    ps1.setLastname('jobs');
-    ps1.setFirstname('steve');
-    t.equal(ps1.fullname(), 'steve JOBS', 'getter override');
-
-    Blend.defineClass('Test.PersonShoutReverse', {
-        extend: 'Test.PersonShout',
-        getLastname: function (value) {
-            return this.callParent.apply(this).split("").reverse().join("");
-        }
-    });
-
-    var psr1 = new Test.PersonShoutReverse();
-    t.equal(psr1.getLastname(), 'eod', 'getter of overridden getter');
-
-    t.done();
-
-});
-
-
 BlendTest.defineTest('classbuilder', 'mixins', function (t) {
 
     Blend.defineClass('Test.Digestable', {
@@ -495,31 +440,6 @@ BlendTest.defineTest('classbuilder', 'class by alias', function (t) {
 
 });
 
-
-BlendTest.defineTest('classbuilder', 'automatic property change', function (t) {
-    var changes = 0;
-    Blend.defineClass('Test.PersonX', {
-        configs: {
-            firstname: 'john',
-            lastname: 'doe',
-            date_of_birth: null
-        },
-        fullname: function () {
-            return this.firstname + ' ' + this.lastname;
-        },
-        onPropertyChange: function (p, o, n) {
-            changes++;
-        }
-    });
-
-    var p = new Test.PersonX();
-    p.setFirstname('a');
-    p.setLastname('a');
-    p.setDateOfBirth('a');
-    t.equal(changes, 3, 'onPropertyChange count');
-    t.equal(p.fullname(), 'a a', 'control');
-    t.done();
-});
 
 BlendTest.defineTest('classbuilder', 'extend from root', function (t) {
     Blend.defineClass('Test.X2', {
