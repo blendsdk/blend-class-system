@@ -758,3 +758,13 @@ BlendTest.defineTest('classbuilder', 'instantiate abstract class', function (t) 
     t.done();
 
 });
+
+BlendTest.defineTest('classbuilder', 'allias check', function (t) {
+
+    Blend.defineClass('Test.alias.Class1', {
+        alias: 'group1.class1'
+    });
+    t.isTrue(Blend.isAliasOfType('group1', 'class1'), 'class1 is of group1')
+    t.done();
+
+});
