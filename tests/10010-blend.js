@@ -28,3 +28,9 @@ BlendTest.defineTest('blend', 'is_boolean', function (t) {
     t.isFalse(Blend.isBoolean(null), 'null is not boolean');
     t.done();
 });
+
+BlendTest.defineTest('blend', 'isNullOrUndef with default', function (t) {
+    t.equal(Blend.isNullOrUndef(null, 1), 1, 'got default');
+    t.equal(Blend.isNullOrUndef(null), true, 'got true');
+    t.done();
+});
