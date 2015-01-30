@@ -1,39 +1,39 @@
 {
-  "name": "blend-class-system",
-  "version": "2.5.2",
-  "description": "BlendJS Object Oriented Class System For NodeJS",
-  "main": "index.js",
-  "scripts": {
-    "test": "node tests/test-runner.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/blendsdk/blend-class-system.git"
-  },
-  "keywords": [
-    "oop",
-    "class",
-    "class system",
-    "blendjs",
-    "blendsdk",
-    "classes",
-    "inheritence",
-    "protected",
-    "static",
-    "mixin",
-    "overriding",
-    "parent",
-    "structure",
-    "constructor",
-    "encapsulation"
-  ],
-  "author": "Gevik Babakhani (blendjs.com)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/blendsdk/blend-class-system/issues"
-  },
-  "devDependencies": {
-    "colors": "*"
-  },
-  "homepage": "https://github.com/blendsdk/blend-class-system"
+    "name": "blend-class-system",
+    "version": "2.5.2",
+    "description": "BlendJS Object Oriented Class System For io.js & node.js",
+    "main": "index.js",
+    "scripts": {
+        "test": "node tests/test-runner.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/blendsdk/blend-class-system.git"
+    },
+    "keywords": [
+        "oop",
+        "class",
+        "class system",
+        "blendjs",
+        "blendsdk",
+        "classes",
+        "inheritence",
+        "protected",
+        "static",
+        "mixin",
+        "overriding",
+        "parent",
+        "structure",
+        "constructor",
+        "encapsulation"
+    ],
+    "author": "Gevik Babakhani (blendjs.com)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/blendsdk/blend-class-system/issues"
+    },
+    "devDependencies": {
+        "colors": "*"
+    },
+    "homepage": "https://github.com/blendsdk/blend-class-system"
 }
