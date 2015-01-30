@@ -10,8 +10,8 @@ But before BlendJS is ready for use I would like to release it's *classical* cla
 to anyone who is interested. I hope you enjoy it and let me know if you happen to find
 any bugs. Don't forget to give this project a star at npmjs.org :)
 
-***IMPORTANT***: This repository is created to enable BlendJS's class system within node.js and io.js.
-It does not provide useful functionality in the browser yet. For the browser version you need
+***IMPORTANT***: This repository is created to enable BlendJS's class system within Node.js.
+It does not provide useful functionality in the browser. For the browser version you need
 to use the BlendJS Web SDK!
 
 ##Getting Started:
@@ -27,9 +27,9 @@ BlendJS's class system implements and provides the following functionality.
 * **Function overriding**, that is the ability to override a function and be able to call it's parent function.
 * **Static members**. These are functions and properties attached to a class. Great to make utility classes.
 * **Automatic namespaces**. BlendJS groups your classes into their corresponding namespaces without headache.
-* **Automatic dependency resolving**. BlendJS (both node.js and io.js and browser versions) automatically resolves class
+* **Automatic dependency resolving**. BlendJS (both Node.js and browser versions) automatically resolves class
 dependencies so you don't need to use ```require``` all the time.
-* **Integration with node.js and io.js**
+* **Integration with Node.js**
 
 ##Defining Classes
 To define a class in BlendJS we make use of the ```Blend.defineClass(...)```
@@ -263,14 +263,14 @@ msgBox.show(
 
 ##Class Dependency Resolution
 BlendJS includes a built-in class resolution systems that automatically resolves
-and imports classes into your program. In node.js and io.js this is done behind the scene.
+and imports classes into your program. In Node.js this is done behind the scene.
 For the browser version of BlendJS the ```blend build``` utility parses your
 classes and compiles a list of every class (with their right order of inclusion)
 to be loaded into a HTML page.
 
 Class definition in BlendJS comes with a configuration directive called ```requires```
 which is used by the dependency analyzer to import class dependencies. Here is how
-it works in node.js and io.js:
+it works in Node.js:
 
 ```JavaScript
 Blend.defineClass('Builder.core.Main', {
@@ -336,7 +336,7 @@ Blend.defineClass('My.cool.Class', {
 ```
 
 **One more thing!**
-When running inside node.js and io.js, you can instruct BlendJS to load your classes from a different location
+When running inside Node.js, you can instruct BlendJS to load your classes from a different location
 than taking the current directory as the root location. This can be doe by:
 
 ```
@@ -346,13 +346,13 @@ Blend.loadPath = __dirname + '/path/to/my/classes/';
 **BlendJS by default sets the value of ```Blend.loadPath``` to the folder of the file
 where ```require('blend-class-system')``` was called for the first time!**
 
-##Integration With node.js and io.js
+##Integration With Node.js
 
-Node.js and io.js provide a very developer friendly ecosystem for developing JavaScript applications.
-To use BlendJS’ class system in node.js and io.js there is very little work on your part to get everything in motion.
+Node.js provides a very developer friendly ecosystem for developing JavaScript applications.
+To use BlendJS’ class system in Node.js there is very little work on your part to get everything in motion.
 
 ####Get blend-class-system installed.
-First of all you need to install ```blend-class-system```. In node.js and io.js you either add ```blend-class-system``` to your dependencies and update your package or you just install using ```npm install```.
+First of all you need to install ```blend-class-system```. In Node.js you either add ```blend-class-system``` to your dependencies and update your package or you just install using ```npm install```.
 
 Let’s see how this goes:
 
@@ -370,7 +370,7 @@ Add ```blend-class-system``` to the dependencies of your package file then run `
 Or just run ```npm install blend-class-system``` if you do not have a ```package.json``` for your project
 
 Next you need to ```require('blend-class-system');``` in the main file of your project. You need to do this only
-once. BlendJS will make itself available from the global scope of your node.js and io.js application.
+once. BlendJS will make itself available from the global scope of your Node.js application.
 
 Here is an example from our HelloWorld application:
 
