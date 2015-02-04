@@ -94,7 +94,7 @@ Blend.defineClass('MyCRM.models.Employee', {
     getInfo: function () {
         var me = this;
         return me.getFullname() +
-                ' makes $' + me.baseSalary +
+                ' makes USD' + me.baseSalary +
                 ' and works at ' + me.department;
     }
 });
