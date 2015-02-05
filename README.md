@@ -29,4 +29,29 @@ BlendJS's class system implements and provides the following functionality.
 dependencies so you don't need to use ```require``` all the time.
 * **Integration with Node.js**
 
+## Defining Classes
+To define a class in BlendJS we make use of the ```Blend.defineClass(...)```
+function, by providing it a FQDN class name and an implementation as a JS object.
+For example:
+
+````JavaScript
+Blend.defineClass('MyCRM.models.Person', {
+    /**
+     * @type {string} A person's firstname
+     */
+    firstName: null,
+    /**
+     * @type {string} A person's lastname
+     */
+    lastName: null,
+    /**
+     * Gets the fullname of a person
+     * @returns {String}
+     */
+    getFullname: function () {
+        var me = this;
+        return me.firstName + ' ' + me.lastName;
+    }
+});
+```
 
