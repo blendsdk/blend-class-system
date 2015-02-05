@@ -298,7 +298,7 @@ For ```Blend.mvc.Application``` we execute ```require('/path/to/Blend/mvc/Applic
 **But that is not all!**
 BlendJS also checks the following configuration directives to resolve dependencies:
 
-`````js
+```js
 /**
  * Automatically load:
  *
@@ -355,6 +355,7 @@ First of all you need to install ```blend-class-system```. In Node.js you either
 Let’s see how this goes:
 
 Add ```blend-class-system``` to the dependencies of your package file then run ```npm update```
+
 ```js
 {
     "name": "MyApp",
