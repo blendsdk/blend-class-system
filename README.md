@@ -190,7 +190,7 @@ itself and initializes that object to be used further. Please note that you
 cannot create multiple instances of a singleton class. There can be only one
 instance of a singleton:
 
-```JavaScript
+```js
 /**
  * Create a singleton
  */
@@ -225,7 +225,7 @@ In contrast to class function, static functions and properties can directly be a
 from the class itself. Static functions and properties can be best used to provide utility
 functions or constants without the need for instantiation:
 
-```JavaScript
+```js
 Blend.defineClass('CrmApp.MessageBox', {
     /**
      * We define static properties like this
@@ -270,7 +270,7 @@ Class definition in BlendJS comes with a configuration directive called ```requi
 which is used by the dependency analyzer to import class dependencies. Here is how
 it works in Node.js:
 
-```JavaScript
+```js
 Blend.defineClass('Builder.core.Main', {
     // These classes will be loaded automatically.
     // You don't need to call require(....)
@@ -355,7 +355,7 @@ First of all you need to install ```blend-class-system```. In Node.js you either
 Let’s see how this goes:
 
 Add ```blend-class-system``` to the dependencies of your package file then run ```npm update```
-```JavaScript
+```js
 {
     "name": "MyApp",
     .....
@@ -372,7 +372,7 @@ once. BlendJS will make itself available from the global scope of your Node.js a
 
 Here is an example from our HelloWorld application:
 
-```JavaScript
+```js
 // make BlendJS available
 require('blend-class-system');
 
