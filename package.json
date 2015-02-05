@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node tests/test-runner.js",
-    "prepublish": "node/etc/prepublish.js"
+    "prepublish": "node etc/prepublish.js"
   },
   "repository": {
     "type": "git",
