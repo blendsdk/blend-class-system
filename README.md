@@ -55,3 +55,16 @@ Blend.defineClass('MyCRM.models.Person', {
 });
 ```
 
+##Instantiating Objects
+To create or instantiate an object in BlendJS we make use of ```Blend.create(...)```
+function, by providing it a class name and optionally an object as configuration to initialize it's
+property values. For example:
+
+```js
+var person = Blend.create('MyCRM.models.Person', {
+    firstName: 'Jane',
+    lastName: 'Eyre'
+});
+
+person.getFullname();
+```
