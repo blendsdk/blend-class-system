@@ -34,7 +34,7 @@ To define a class in BlendJS we make use of the ```Blend.defineClass(...)```
 function, by providing it a FQDN class name and an implementation as a JS object.
 For example:
 
-``js
+```js
 Blend.defineClass('MyCRM.models.Person', {
     /**
      * @type {string} A person's firstname
@@ -53,18 +53,18 @@ Blend.defineClass('MyCRM.models.Person', {
         return me.firstName + ' ' + me.lastName;
     }
 });
-``
+```
 
 ## Instantiating Objects
 To create or instantiate an object in BlendJS we make use of ```Blend.create(...)```
 function, by providing it a class name and optionally an object as configuration to initialize it's
 property values. For example:
 
-``js
+```js
 var person = Blend.create('MyCRM.models.Person', {
     firstName: 'Jane',
     lastName: 'Eyre'
 });
 
 person.getFullname();
-``
+```
